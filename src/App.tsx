@@ -1,42 +1,44 @@
-import { FolderOpenDot } from "lucide-react";
-import "./App.css";
+import { Card, CardBody, CardHeader, Chip, Spinner } from "@nextui-org/react";
+import { mockData } from "./assets/mockData";
+import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
-import { ProjectCardProps } from "./types/projectCard-props";
 
-const mockData: Array<ProjectCardProps> = [
-  {
-    isFooterBlurred: true,
-    project: {
-      title: "project1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, architecto reprehenderit! Dignissimos quia praesentium reiciendis aliquam tempora ipsam quas provident ipsum ex assumenda distinctio eveniet, veniam reprehenderit. Obcaecati aliquam odio voluptate expedita harum qui rerum corrupti magnam dicta repellat illo sint laudantium, pariatur, id vitae, dolore quae! Voluptatem consequuntur ab exercitationem assumenda voluptas quibusdam natus earum quod recusandae pariatur ipsum quo, dolorem a sed aliquam perferendis. Nam non velit ut quia, fugiat architecto ad doloremque, enim aliquam iste quo sint ipsa repellat consequuntur, odit at amet fugit eos dignissimos voluptas nobis dolores. Perferendis quasi accusantium impedit. Quis nemo ex iste? ",
-      startIcon: <FolderOpenDot />,
-    },
-  },
-  {
-    isFooterBlurred: true,
-    project: {
-      title: "project2",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, architecto reprehenderit! Dignissimos quia praesentium reiciendis aliquam tempora ipsam quas provident ipsum ex assumenda distinctio eveniet, veniam reprehenderit. Obcaecati aliquam odio voluptate expedita harum qui rerum corrupti magnam dicta repellat illo sint laudantium, pariatur, id vitae, dolore quae! Voluptatem consequuntur ab exercitationem assumenda voluptas quibusdam natus earum quod recusandae pariatur ipsum quo, dolorem a sed aliquam perferendis. Nam non velit ut quia, fugiat architecto ad doloremque, enim aliquam iste quo sint ipsa repellat consequuntur, odit at amet fugit eos dignissimos voluptas nobis dolores. Perferendis quasi accusantium impedit. Quis nemo ex iste? ",
-      startIcon: <FolderOpenDot />,
-    },
-  },
-];
 export default function App() {
   return (
-    <main className="gap-x-10 md:grid md:grid-cols-11">
-      <nav className="mt-5 space-y-5 sm:col-span-3 lg:col-span-2">hello</nav>
-      <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-8">
-        <h1>Hello Jarrrr</h1>
-        <ul className="w-full">
-          {mockData.map((data, index) => (
-            <li key={index} className="py-8">
-              <ProjectCard {...data} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+    <div className="mx-0 my-auto max-w-full p-4 md:p-8">
+      <main className="gap-x-5 md:grid md:grid-cols-12 md:gap-x-8">
+        <section className="sticky space-y-5 pt-5 sm:col-span-4 md:mt-5 md:pt-20 lg:col-span-3">
+          <div className="sticky top-10">
+            <ProfileCard />
+            <nav className="">
+              <Card
+                className="max-w-[610px] rounded-3xl border-none bg-background/30 p-5 shadow-lg shadow-neutral-600 dark:bg-default-100/50 sm:p-8"
+                shadow="sm"
+              >
+                <CardHeader>Tintinnkt</CardHeader>
+                <CardBody>
+                  <ul>
+                    <li>asdf</li>
+                    <li>asdf</li>
+                    <li>asdf</li>
+                    <Chip>aa</Chip>
+                  </ul>
+                </CardBody>
+              </Card>
+            </nav>
+          </div>
+        </section>
+        <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-8">
+          <h1 className="text-3xl">Hello Jarrrr</h1>
+          <ul className="w-full">
+            {mockData.map((data, index) => (
+              <li key={index} className="py-2">
+                <ProjectCard {...data} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+    </div>
   );
 }
