@@ -1,5 +1,5 @@
 import { Card, CardBody, CardHeader, Divider, Link } from "@nextui-org/react";
-import { Star } from "lucide-react";
+import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
 import { mockData } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
@@ -15,7 +15,7 @@ export default function App() {
             <ProfileCard />
             <nav className="py-2 md:py-5">
               <Card
-                className="max-w-[610px] rounded-3xl border-none bg-background/30 p-5 shadow-lg shadow-neutral-600 dark:bg-default-100/50 sm:p-8"
+                className="max-w-[610px] rounded-3xl border-none bg-background/30 p-2 shadow-lg shadow-neutral-600 dark:bg-default-100/50 sm:p-4"
                 shadow="sm"
               >
                 <CardHeader className="justify-center">
@@ -24,24 +24,30 @@ export default function App() {
                 <Divider />
                 <CardBody>
                   <ul>
-                    {mockData.map(({ title, highlight }) => (
-                      <li className="flex justify-center py-1">
+                    {mockData.map(({ title, highlight, type }) => (
+                      <li className=" justify-center py-1 w-full">
                         <Link
                           isBlock
                           href={`#${title}`}
-                          underline="active"
-                          className="w-full justify-center"
+                          underline="focus"
+                          className="w-full justify-center text-white font-medium grid grid-cols-6"
+                          color="secondary"
                           onClick={(e) => {
                             handleScroll(e, title);
                           }}
                         >
+                          {type === "project" ? (
+                            <FolderOpenDot className="mx-2 sm:mx-1" />
+                          ) : (
+                            <FileBadge2 className="mx-2 sm:mx-1" />
+                          )}{" "}
+                          <p className="col-span-5 flex items-center">{title}
                           {highlight && (
                             <Star
                               fill="#FDE046"
-                              className="mx-2 text-yellow-300 sm:mx-1"
+                              className="mx-2 text-yellow-300 sm:mx-1 grid-cols-1"
                             />
-                          )}
-                          {title}
+                          )}</p>
                         </Link>
                       </li>
                     ))}

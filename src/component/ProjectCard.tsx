@@ -24,7 +24,7 @@ const ProjectCard = (project: project) => {
             {project.type === "project" ? <FolderOpenDot /> : <FileBadge2 />}
 
             <div className="flex flex-col font-semibold">
-              <p className="text-xl flex items-center gap-x-1">
+              <p className="flex items-center gap-x-1 text-xl">
                 {project.title}{" "}
                 {project.highlight && (
                   <Star
@@ -36,9 +36,9 @@ const ProjectCard = (project: project) => {
               <p className="text-small text-default-500">{project.subtitile}</p>
             </div>
           </div>
-          <div className="flex items-end">
+          <div className="flex flex-wrap items-end">
             {project.includes.map((name) => (
-              <div className="px-1">
+              <div className="p-1">
                 <Chip
                   color={project.type === "competition" ? "primary" : "warning"}
                   variant="solid"
