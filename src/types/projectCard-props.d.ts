@@ -5,7 +5,7 @@ export interface project {
   detail?: React.ReactNode;
   tools?: Array<projectTool>;
   type: "project" | "competition";
-  status: Array<string>;
+  includes: Array<string>;
   highlight: boolean;
 }
 interface projectTool {

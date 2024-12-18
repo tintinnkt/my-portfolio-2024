@@ -15,9 +15,9 @@ export default function ProfileCard() {
   return (
     <Skeleton
       isLoaded
-      className="my-4 max-w-[360px] rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-neutral-700"
+      className="my-4 max-w-[400px] rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-neutral-700"
     >
-      <Card isBlurred className="bg-background/40">
+      <Card isBlurred className="bg-background/30">
         <CardHeader className="justify-between">
           <div className="flex gap-5">
             <Avatar
@@ -54,7 +54,7 @@ export default function ProfileCard() {
             eager to build innovative and efficient solutions.
           </p>
           <Chip className="" size="sm" variant="solid" color="success">
-            #FrontendWithTintin
+            #???
             <span aria-label="computer" className="py-2" role="img">
               💻
             </span>
