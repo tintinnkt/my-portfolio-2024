@@ -61,14 +61,23 @@ export default function ProfileCard() {
           </Chip>
         </CardBody>
         <CardFooter className="gap-3">
-          <div className="flex gap-1" onClick={() => {}}>
-            <Github />
-            <p className="text-small">Github</p>
-          </div>
-          <div className="flex gap-1">
-            <Link />
-            <p className="text-small">links here</p>
-          </div>
+          <Button
+            className="flex gap-1 text-small font-semibold"
+            variant="flat"
+            color="primary"
+            onPress={() => {}}
+            endContent={<Github />}
+          >
+            Github
+          </Button>
+          <Button
+            className="flex gap-1 text-small font-semibold"
+            variant="flat"
+            color="primary"
+            endContent={<Link />}
+          >
+            Link
+          </Button>
         </CardFooter>
       </Card>
     </Skeleton>
