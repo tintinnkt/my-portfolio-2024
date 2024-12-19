@@ -9,8 +9,8 @@ export default function App() {
   const { handleScroll } = useSmoothScroll();
   return (
     <div className="mx-0 my-auto max-w-full p-4 md:p-8">
-      <main className="gap-x-5 md:grid md:grid-cols-12 md:gap-x-8">
-        <section className="sticky space-y-5 pt-5 sm:col-span-4 md:mt-5 md:pt-20 lg:col-span-3">
+      <main className="gap-x-3 md:grid md:grid-cols-12 md:gap-x-8">
+        <section className="sticky col-span-4 space-y-5 pt-5 md:mt-5 md:pt-20 lg:col-span-3">
           <div className="sticky top-0 md:top-10">
             <ProfileCard />
             <nav className="py-2 md:py-5">
@@ -36,16 +36,20 @@ export default function App() {
                           }}
                         >
                           {type === "project" ? (
-                            <FolderOpenDot className="mx-2 sm:mx-1" />
+                            <div className="px-2 sm:px-1">
+                              <FolderOpenDot />
+                            </div>
                           ) : (
-                            <FileBadge2 className="mx-2 sm:mx-1" />
+                            <div className="px-2 sm:px-1">
+                              <FileBadge2 />
+                            </div>
                           )}{" "}
-                          <p className="col-span-5 flex items-center">
+                          <p className="col-span-5 flex items-center px-1">
                             {title}
                             {highlight && (
                               <Star
                                 fill="#FDE046"
-                                className="mx-2 grid-cols-1 text-yellow-300 sm:mx-1"
+                                className="mx-2 text-yellow-300 sm:mx-1"
                               />
                             )}
                           </p>
@@ -58,7 +62,7 @@ export default function App() {
             </nav>
           </div>
         </section>
-        <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-8">
+        <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-9">
           <h1 className="text-3xl">Hello Jarrrr</h1>
           <ul className="w-full">
             {mockData.map((data) => (

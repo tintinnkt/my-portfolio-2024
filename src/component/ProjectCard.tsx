@@ -21,7 +21,9 @@ const ProjectCard = (project: project) => {
       >
         <CardHeader className="flex justify-between px-1">
           <div className="flex items-center justify-start gap-3">
-            {project.type === "project" ? <FolderOpenDot /> : <FileBadge2 />}
+            <div className="p-1">
+              {project.type === "project" ? <FolderOpenDot /> : <FileBadge2 />}
+            </div>
 
             <div className="flex flex-col font-semibold">
               <p className="flex items-center gap-x-1 text-xl">
