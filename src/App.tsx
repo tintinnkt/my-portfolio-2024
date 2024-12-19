@@ -25,12 +25,11 @@ export default function App() {
                 <CardBody>
                   <ul>
                     {mockData.map(({ title, highlight, type }) => (
-                      <li className=" justify-center py-1 w-full">
+                      <li className="w-full justify-center py-1">
                         <Link
                           isBlock
-                          href={`#${title}`}
                           underline="focus"
-                          className="w-full justify-center text-white font-medium grid grid-cols-6"
+                          className="grid w-full grid-cols-6 justify-center font-medium text-white"
                           color="secondary"
                           onClick={(e) => {
                             handleScroll(e, title);
@@ -41,13 +40,15 @@ export default function App() {
                           ) : (
                             <FileBadge2 className="mx-2 sm:mx-1" />
                           )}{" "}
-                          <p className="col-span-5 flex items-center">{title}
-                          {highlight && (
-                            <Star
-                              fill="#FDE046"
-                              className="mx-2 text-yellow-300 sm:mx-1 grid-cols-1"
-                            />
-                          )}</p>
+                          <p className="col-span-5 flex items-center">
+                            {title}
+                            {highlight && (
+                              <Star
+                                fill="#FDE046"
+                                className="mx-2 grid-cols-1 text-yellow-300 sm:mx-1"
+                              />
+                            )}
+                          </p>
                         </Link>
                       </li>
                     ))}
