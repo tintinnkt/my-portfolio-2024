@@ -10,7 +10,9 @@ import {
   Skeleton,
 } from "@nextui-org/react";
 import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
+import { techStackMapping } from "../assets/constants/toolMapping";
 import { project } from "../types/projectCard-props";
+import ImagesWithPagination from "./ImageWithPag";
 
 const ProjectCard = (project: project) => {
   return (
@@ -39,9 +41,10 @@ const ProjectCard = (project: project) => {
             </div>
           </div>
           <div className="flex flex-wrap items-end">
-            {project.includes.map((name) => (
+            {project.includes.map((name, index) => (
               <div className="p-1">
                 <Chip
+                  key={index}
                   color={project.type === "competition" ? "primary" : "warning"}
                   variant="solid"
                 >
@@ -69,37 +72,40 @@ const ProjectCard = (project: project) => {
                 subtitle="See what is used in this project"
                 className="items-center font-bold"
               >
-                {project.tools?.map(({ name, detail, type }, index) => (
+                {project.tools?.map((name, index) => (
                   <div
                     key={index}
                     className="grid grid-cols-6 items-center gap-3 py-1 font-normal"
                   >
                     <div className="col-span-1 items-center">
                       <Chip
-                        color={typeColor[type] || "default"}
+                        color={
+                          typeColor[techStackMapping[name].type] || "default"
+                        }
                         className="w-full text-center"
                         variant="flat"
                       >
-                        {type}
+                        {techStackMapping[name].type}
                       </Chip>
                     </div>
                     <div className="col-span-2 font-bold">{name}</div>
-                    <div className="col-span-3">{detail}</div>
+                    <div className="col-span-3">
+                      {techStackMapping[name].description}
+                    </div>
                   </div>
                 ))}
               </AccordionItem>
             ) : null}
-            <AccordionItem
-              key="2"
-              title="Accordion 2"
-              aria-label="Accordion 2"
-              subtitle="Press to expand"
-            >
-              <div className="grid w-fit grid-cols-2 items-center font-medium">
-                <div>a</div>
-                <div>b</div>
-              </div>
-            </AccordionItem>
+            {project.imagesPath ? (
+              <AccordionItem
+                key="2"
+                title="Accordion 2"
+                aria-label="Accordion 2"
+                subtitle="Press to expand"
+              >
+                <ImagesWithPagination imagesPath={project.imagesPath} />
+              </AccordionItem>
+            ) : null}
           </Accordion>
         </CardFooter>
       </Card>
@@ -117,5 +123,6 @@ const typeColor: Record<
   Dependency: "secondary",
   Service: "warning",
   Library: "danger",
+  "UI Library": "danger",
   Tool: "success",
 };
