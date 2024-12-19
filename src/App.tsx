@@ -9,7 +9,7 @@ export default function App() {
   const { handleScroll } = useSmoothScroll();
   return (
     <div className="mx-0 my-auto max-w-full p-4 md:p-8">
-      <main className="gap-x-3 md:grid md:grid-cols-12 md:gap-x-8">
+      <main className="grid grid-cols-12 gap-x-2 lg:gap-x-6">
         <section className="sticky col-span-4 space-y-5 pt-5 md:mt-5 md:pt-20 lg:col-span-3">
           <div className="sticky top-0 md:top-10">
             <ProfileCard />
@@ -24,8 +24,8 @@ export default function App() {
                 <Divider />
                 <CardBody>
                   <ul>
-                    {mockData.map(({ title, highlight, type }) => (
-                      <li className="w-full justify-center py-1">
+                    {mockData.map(({ title, highlight, type }, index) => (
+                      <li className="w-full justify-center py-1" key={index}>
                         <Link
                           isBlock
                           underline="focus"
@@ -65,8 +65,8 @@ export default function App() {
         <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-9">
           <h1 className="text-3xl">Hello Jarrrr</h1>
           <ul className="w-full">
-            {mockData.map((data) => (
-              <li id={data.title} key={data.title} className="py-2">
+            {mockData.map((data, index) => (
+              <li id={data.title} key={index} className="py-2">
                 <ProjectCard {...data} />
               </li>
             ))}
