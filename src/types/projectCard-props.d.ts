@@ -3,13 +3,9 @@ export interface project {
   subtitile?: string;
   description: string;
   detail?: React.ReactNode;
-  tools?: Array<projectTool>;
+  tools?: Array<string>;
   type: "project" | "competition";
   includes: Array<string>;
   highlight: boolean;
-}
-interface projectTool {
-  name: string;
-  detail: string;
-  type: string;
+  imagesPath?: string;
 }

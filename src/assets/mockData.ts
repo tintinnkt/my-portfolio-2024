@@ -1,4 +1,7 @@
 import { project } from "../types/projectCard-props";
+export const ImagePath = {
+  moneyManagement: "/src/assets/image/money-management/",
+};
 
 export const mockData: Array<project> = [
   {
@@ -18,47 +21,24 @@ export const mockData: Array<project> = [
     type: "project",
     includes: ["Web Development", "Database", "React"],
     highlight: false,
+    imagesPath: ImagePath.moneyManagement,
     tools: [
-      {
-        name: "Vite.js",
-        detail: "Fast build tool for modern React web applications.",
-        type: "Framework",
-      },
-      {
-        name: "Firebase Firestore Database",
-        detail: "Store and retrieve application data in real time.",
-        type: "Service",
-      },
-      {
-        name: "Firebase Authentication",
-        detail: "User authentication and registration service.",
-        type: "Service",
-      },
-      {
-        name: "Firebase Hosting",
-        detail: "Deploy and host the web application.",
-        type: "Service",
-      },
-      {
-        name: "react-router-dom",
-        detail: "Client-side routing and navigation.",
-        type: "Library",
-      },
-      {
-        name: "gapi-script & react-google-login",
-        detail: "For Google-based login functionality.",
-        type: "Dependency",
-      },
-      {
-        name: "react-google-charts",
-        detail: "Library for interactive charts and graphs.",
-        type: "Library",
-      },
-      {
-        name: "Fetch API",
-        detail: "Native browser API for fetching data.",
-        type: "API",
-      },
+      "React",
+      "React DOM",
+      "React Router DOM",
+      "Firebase",
+      "Vite",
+      "Bootstrap Icons",
+      "Date-fns",
+      "gapi-script",
+      "React-Bootstrap",
+      "React-Datepicker",
+      "React Google Charts",
+      "React Google Login",
+      "React Select",
+      "TypeScript",
+      "ESLint",
+      "Prettier",
     ],
   },
   {
@@ -70,53 +50,19 @@ export const mockData: Array<project> = [
     includes: ["Next.js", "Docker", "NextUI", "Prisma", "Tailwind CSS"],
     highlight: true,
     tools: [
-      {
-        name: "Next.js",
-        detail: "Framework for React applications with SSR and API routes",
-        type: "Framework",
-      },
-      {
-        name: "Tailwind CSS",
-        detail: "For utility-first, responsive styling.",
-        type: "Framework",
-      },
-      {
-        name: "Prisma",
-        detail: "ORM for database management and schema migration",
-        type: "Dependency",
-      },
-      {
-        name: "Axios",
-        detail: "HTTP client for API integration",
-        type: "Dependency",
-      },
-      {
-        name: "TanStack React Query",
-        detail: "Data fetching and state management library for React",
-        type: "Dependency",
-      },
-      {
-        name: "NextUI",
-        detail:
-          "UI component library to build beautiful and responsive interfaces",
-        type: "Library",
-      },
-      {
-        name: "Lucide Icons",
-        detail: "Icon library for modern and customizable icons",
-        type: "Library",
-      },
-      {
-        name: "React Hot Toast",
-        detail:
-          "Notifications library for clean and customizable toast messages",
-        type: "Library",
-      },
-      {
-        name: "Docker",
-        detail: "Containerization tool to manage and run databases locally",
-        type: "Tool",
-      },
+      "Next.js",
+      "NextAuth.js",
+      "NextUI",
+      "Axios",
+      "Prisma Client",
+      "Framer Motion",
+      "React",
+      "React DOM",
+      "React Icons",
+      "Class-Variance-Authority",
+      "Tailwind CSS",
+      "PostCSS",
+      "TypeScript",
     ],
   },
   {
@@ -127,53 +73,6 @@ export const mockData: Array<project> = [
     type: "project",
     highlight: false,
     includes: ["vite.js", "UX/UI", "Tailwind CSS", "TypeScript"],
-    tools: [
-      {
-        name: "TypeScript",
-        detail: "For type-safe and scalable JavaScript development.",
-        type: "Language",
-      },
-      {
-        name: "Vite.js",
-        detail: "Fast and efficient React development and build toolchain.",
-        type: "Framework",
-      },
-
-      {
-        name: "Tailwind CSS",
-        detail: "For utility-first, responsive styling.",
-        type: "Framework",
-      },
-      {
-        name: "NextUI",
-        detail: "Modern UI components for React applications.",
-        type: "Library",
-      },
-      {
-        name: "Framer Motion",
-        detail: "For smooth animations and transitions.",
-        type: "Dependency",
-      },
-      {
-        name: "Lucide React",
-        detail: "For integrating open-source icons into the UI.",
-        type: "Dependency",
-      },
-      {
-        name: "ESLint",
-        detail: "For maintaining code quality and consistency.",
-        type: "Tool",
-      },
-      {
-        name: "Prettier",
-        detail: "For automatic code formatting.",
-        type: "Tool",
-      },
-      {
-        name: "PostCSS",
-        detail: "For CSS processing and optimization.",
-        type: "Tool",
-      },
-    ],
+    tools: [],
   },
 ];
