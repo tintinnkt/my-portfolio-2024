@@ -5,7 +5,6 @@ export interface project {
   detail?: React.ReactNode;
   tools?: Array<string>;
   type: "project" | "competition";
-  includes: Array<string>;
   highlight: boolean;
   imagesPath?: string;
 }

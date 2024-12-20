@@ -1,110 +1,136 @@
-export const techStackMapping: Record<string, { description: string; type: string }> = {
-  "React": {
+export const techStackMapping: Record<
+  string,
+  { description: string; type: string }
+> = {
+  React: {
     description: "A JavaScript library for building user interfaces.",
-    type: "Library"
+    type: "Library",
   },
   "React DOM": {
     description: "Provides DOM-specific methods for React.",
-    type: "Library"
+    type: "Library",
   },
   "React Router DOM": {
-    description: "Library for handling routing in React applications.",
-    type: "Library"
+    description: "Declarative routing for React applications.",
+    type: "Library",
   },
-  "Firebase": {
-    description: "Platform for developing web and mobile applications with real-time databases, authentication, etc.",
-    type: "Library"
+  Firebase: {
+    description:
+      "A Platform-as-a-Service (PaaS) platform for web and mobile application development, offering real-time databases, authentication, and more.",
+    type: "PaaS", // More specific type
   },
-  "Vite": {
-    description: "A fast build tool that serves and bundles the application.",
-    type: "Build Tool"
+  "Vite.js": {
+    description:
+      "A fast build tool and development server for modern web projects.",
+    type: "Build Tool",
   },
-  "TypeScript": {
-    description: "A strongly typed superset of JavaScript.",
-    type: "Language"
+  TypeScript: {
+    description:
+      "A strongly typed superset of JavaScript that compiles to plain JavaScript.",
+    type: "Language",
   },
-  "ESLint": {
-    description: "A static code analysis tool for identifying and fixing issues in JavaScript/TypeScript code.",
-    type: "Tool"
+  ESLint: {
+    description:
+      "A static code analysis tool for identifying and reporting on patterns found in ECMAScript/JavaScript/TypeScript code.",
+    type: "Linting Tool", // More specific
   },
-  "Prettier": {
-    description: "An opinionated code formatter.",
-    type: "Tool"
+  Prettier: {
+    description:
+      "An opinionated code formatter that enforces a consistent style.",
+    type: "Formatter", // More specific
   },
   "Prisma Client": {
-    description: "ORM for connecting to a database with TypeScript support.",
-    type: "ORM"
+    description:
+      "A type-safe ORM for Node.js and TypeScript that simplifies database access.",
+    type: "ORM",
   },
-  "Axios": {
-    description: "Promise-based HTTP client for making requests.",
-    type: "Library"
+  Axios: {
+    description:
+      "A promise-based HTTP client for making HTTP requests from Node.js or the browser.",
+    type: "Library",
   },
   "Next.js": {
-    description: "A React framework for building server-side rendered applications.",
-    type: "Framework"
+    description:
+      "React framework that provides a more complete solution for building web application.",
+    type: "Framework",
   },
   "NextAuth.js": {
-    description: "Authentication solution for Next.js apps.",
-    type: "Library"
+    description:
+      "An authentication library for Next.js applications, supporting various providers like OAuth, email, and credentials.",
+    type: "Library",
   },
-  "NextUI": {
-    description: "React UI library with a focus on ease of use and customization.",
-    type: "UI Library"
+  NextUI: {
+    description:
+      "A React UI library focused on developer experience and customization.",
+    type: "UI Library",
   },
   "Framer Motion": {
-    description: "A library for animations in React.",
-    type: "Library"
+    description:
+      "A production-ready motion library for React that simplifies creating animations and gestures.",
+    type: "Library",
   },
   "React Icons": {
-    description: "A library for integrating icons in React applications.",
-    type: "Library"
+    description:
+      "A library that provides a wide range of icons as React components.",
+    type: "Library",
   },
   "Class-Variance-Authority": {
-    description: "Utility for handling CSS class names based on component variants.",
-    type: "Library"
+    description:
+      "A utility for constructing class names conditionally based on component variants.",
+    type: "Library",
   },
   "Tailwind CSS": {
-    description: "Utility-first CSS framework for rapid UI development.",
-    type: "CSS Framework"
+    description:
+      "A utility-first CSS framework for rapidly styling HTML elements.",
+    type: "CSS Framework",
   },
-  "PostCSS": {
-    description: "Tool for transforming CSS with JavaScript plugins.",
-    type: "Tool"
+  PostCSS: {
+    description:
+      "A tool for transforming CSS with JavaScript plugins, enabling features like autoprefixing and future CSS syntax.",
+    type: "Tool",
   },
   "React-Bootstrap": {
-    description: "Bootstrap components for React.",
-    type: "UI Library"
+    description:
+      "React components that implement the Bootstrap styling and layout system.",
+    type: "UI Library",
   },
   "React-Datepicker": {
-    description: "Date picker component for React.",
-    type: "Library"
+    description: "A customizable date picker component for React applications.",
+    type: "Component", // More accurate
   },
   "React Google Charts": {
-    description: "A library for using Google Charts in React applications.",
-    type: "Library"
+    description:
+      "A React wrapper for Google Charts, allowing you to easily embed charts and graphs.",
+    type: "Library",
   },
   "React Google Login": {
-    description: "Google login component for React applications.",
-    type: "Library"
+    description:
+      "A React component for integrating Google Sign-In into your applications.",
+    type: "Component", // More accurate
   },
-  "React Select": {
-    description: "A flexible select/dropdown control for React.",
-    type: "Library"
-  },
-  "Bootstrap": {
-    description: "Popular CSS framework for responsive design.",
-    type: "CSS Framework"
+  Bootstrap: {
+    description:
+      "A popular CSS framework for developing responsive and mobile-first websites.",
+    type: "CSS Framework",
   },
   "Bootstrap Icons": {
-    description: "Icon set for Bootstrap.",
-    type: "Icon Set"
+    description:
+      "A free, high-quality icon set designed for use with Bootstrap.",
+    type: "Icon Set",
   },
   "Date-fns": {
-    description: "A modern JavaScript library for working with dates.",
-    type: "Library"
+    description:
+      "A modern JavaScript utility library for manipulating dates and times.",
+    type: "Library",
   },
-  "gapi-script": {
-    description: "Google API client library.",
-    type: "Library"
-  }
+  "ค่าย 2": {
+    description:
+      "ผ่านการอบรมในโครงการโอลิมปิกวิชาการ สาขาวิชาคอมพิวเตอร์ค่าย 2",
+    type: "none",
+  },
+  "Data Structure": {
+    description:
+      "Way of organizing and storing data in a computer so that it can be accessed and used efficiently.",
+    type: "none",
+  },
 };

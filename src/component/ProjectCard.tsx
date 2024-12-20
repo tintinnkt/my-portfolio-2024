@@ -8,8 +8,10 @@ import {
   Chip,
   Divider,
   Skeleton,
+  Tooltip,
 } from "@nextui-org/react";
 import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
+import { twJoin } from "tailwind-merge";
 import { techStackMapping } from "../assets/constants/toolMapping";
 import { project } from "../types/projectCard-props";
 import ImagesWithPagination from "./ImageWithPag";
@@ -40,31 +42,55 @@ const ProjectCard = (project: project) => {
               <p className="text-small text-default-500">{project.subtitile}</p>
             </div>
           </div>
-          <div className="flex flex-wrap items-end">
-            {project.includes.map((name, index) => (
-              <div className="p-1">
-                <Chip
-                  key={index}
-                  color={project.type === "competition" ? "primary" : "warning"}
-                  variant="solid"
-                >
-                  {name}
-                </Chip>
-              </div>
-            ))}
-          </div>
         </CardHeader>
         <Divider />
         <CardBody>
           <p className="text-pretty text-justify indent-6 sm:indent-10">
             {project.description}
           </p>
+          <div className="px-5 py-3">
+            <Divider />
+          </div>
+          <div className="flex w-full flex-wrap gap-2 py-1">
+            {project.tools?.map((tool, index) => (
+              <Tooltip
+                key={index}
+                color={typeColor[techStackMapping[tool]?.type] || "default"}
+                delay={1200}
+                content={
+                  techStackMapping[tool]?.type != undefined && (
+                    <div>
+                      {(techStackMapping[tool]?.type !== "none"
+                        ? techStackMapping[tool]?.type + " : "
+                        : "") + techStackMapping[tool]?.description}
+                    </div>
+                  )
+                }
+                className={
+                  techStackMapping[tool]?.type == undefined ? "opacity-0" : ""
+                }
+              >
+                <Chip
+                  color={typeColor[techStackMapping[tool]?.type] || "default"}
+                  className={twJoin(
+                    "w-full text-center",
+                    techStackMapping[tool]?.type != undefined
+                      ? "cursor-context-menu"
+                      : "cursor-default",
+                  )}
+                  variant="flat"
+                >
+                  {tool}
+                </Chip>
+              </Tooltip>
+            ))}
+          </div>
         </CardBody>
-        <Divider className="weight" />
+        <Divider />
 
-        <CardFooter className="w-full py-4">
+        <CardFooter className="flex w-full flex-col py-4">
           <Accordion showDivider={false} isCompact>
-            {project.tools ? (
+            {/* {project.tools ? (
               <AccordionItem
                 key="tools"
                 aria-label="Accordion 1"
@@ -95,7 +121,7 @@ const ProjectCard = (project: project) => {
                   </div>
                 ))}
               </AccordionItem>
-            ) : null}
+            ) : null} */}
             {project.imagesPath ? (
               <AccordionItem
                 key="2"
@@ -103,7 +129,10 @@ const ProjectCard = (project: project) => {
                 aria-label="Accordion 2"
                 subtitle="Press to expand"
               >
-                <ImagesWithPagination imagesPath={project.imagesPath} />
+                <ImagesWithPagination
+                  imagesPath={project.imagesPath}
+                  imgPerpage={4}
+                />
               </AccordionItem>
             ) : null}
           </Accordion>
@@ -120,9 +149,16 @@ const typeColor: Record<
   "primary" | "secondary" | "success" | "warning" | "danger"
 > = {
   Framework: "primary",
-  Dependency: "secondary",
-  Service: "warning",
-  Library: "danger",
+  Library: "primary",
   "UI Library": "danger",
   Tool: "success",
+  PaaS: "success",
+  Service: "warning",
+  "CSS Framework": "secondary",
+  "Linting Tool": "success",
+  Formatter: "success",
+  ORM: "secondary",
+  Component: "secondary",
+  "Icon Set": "secondary",
+  "Build Tool": "secondary",
 };
