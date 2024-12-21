@@ -3,6 +3,7 @@ import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
 import { mockData } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
+import { IconCloudComponent } from "./component/ui/InteractiveIconCloud";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 export default function App() {
@@ -60,6 +61,7 @@ export default function App() {
                 </CardBody>
               </Card>
             </nav>
+            <IconCloudComponent />
           </div>
         </section>
         <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-9">
