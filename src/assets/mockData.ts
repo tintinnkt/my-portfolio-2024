@@ -67,7 +67,6 @@ export const mockData: Array<project> = [
       "My latest modern, interactive personal portfolio website built with React, Vite, and TypeScript. It showcases my skills, projects, and achievements as a software developer. The project uses Tailwind CSS for styling and animations with Framer Motion for enhanced user experience. The site features a clean design with components powered by NextUI and Lucide React for icons.",
     type: "project",
     highlight: false,
-    includes: ["vite.js", "UX/UI", "Tailwind CSS", "TypeScript"],
-    tools: [],
+    tools: ["Vite.js", "UX/UI", "Tailwind CSS", "TypeScript"],
   },
 ];

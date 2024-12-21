@@ -133,4 +133,9 @@ export const techStackMapping: Record<
       "Way of organizing and storing data in a computer so that it can be accessed and used efficiently.",
     type: "none",
   },
+  "C++": {
+    description:
+      "Cross-platform language that can be used to create high-performance applications.",
+    type: "Language",
+  },
 };
