@@ -90,7 +90,7 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
 
 export function IconCloudComponent() {
   return (
-    <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg px-5 pb-5">
+    <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-[50%] sm:m-4">
       <IconCloud iconSlugs={slugs} />
     </div>
   );

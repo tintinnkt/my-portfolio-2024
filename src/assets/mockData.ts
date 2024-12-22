@@ -33,8 +33,6 @@ export const mockData: Array<project> = [
       "React Google Charts",
       "React Google Login",
       "TypeScript",
-      "ESLint",
-      "Prettier",
     ],
   },
   {

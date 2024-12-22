@@ -3,18 +3,21 @@ import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
 import { mockData } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
+import { Boxes } from "./component/ui/BackgroundBox";
+import { TypingAnimation } from "./component/ui/HyperText";
 import { IconCloudComponent } from "./component/ui/InteractiveIconCloud";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 export default function App() {
   const { handleScroll } = useSmoothScroll();
   return (
-    <div className="mx-0 my-auto max-w-full p-4 md:p-8">
-      <main className="grid grid-cols-12 gap-x-2 lg:gap-x-6">
-        <section className="sticky col-span-4 space-y-5 pt-5 md:mt-5 md:pt-20 lg:col-span-3">
-          <div className="sticky top-0 md:top-10">
+    <div className="mx-0 my-auto min-h-full max-w-full p-4 md:p-8">
+      <main className="grid grid-cols-12 gap-x-6 md:gap-x-10">
+        <section className="col-span-12 sm:col-span-4 lg:col-span-3">
+          <div className="sticky top-4 space-y-10">
+            <Boxes />
             <ProfileCard />
-            <nav className="py-2 md:py-5">
+            <nav className="">
               <Card
                 className="max-w-[610px] rounded-3xl border-none bg-background/30 p-2 shadow-lg shadow-neutral-600 dark:bg-default-100/50 sm:p-4"
                 shadow="sm"
@@ -60,18 +63,26 @@ export default function App() {
                   </ul>
                 </CardBody>
               </Card>
+              <IconCloudComponent />
             </nav>
-            <IconCloudComponent />
           </div>
         </section>
-        <section className="col-span-8 my-10 flex h-full w-full flex-col justify-between gap-y-4 md:my-0 lg:col-span-9">
-          <h1 className="text-3xl">Hello Jarrrr</h1>
-          <ul className="w-full">
+        <section className="col-span-12 my-10 flex h-full w-full flex-col justify-between gap-y-4 sm:col-span-8 md:my-0 lg:col-span-9">
+          <header className="flex w-full items-center justify-center">
+            <p className="flex items-center py-10 text-6xl">
+              {null}
+              <TypingAnimation>
+                {" Welcome to " + " My portfolio website"}
+              </TypingAnimation>
+            </p>
+          </header>
+          <ul className="w-full space-y-10">
             {mockData.map((data, index) => (
-              <li id={data.title} key={index} className="py-2">
+              <li id={data.title} key={index} className="">
                 <ProjectCard {...data} />
               </li>
             ))}
+            <li className="h-72"></li>
           </ul>
         </section>
       </main>
