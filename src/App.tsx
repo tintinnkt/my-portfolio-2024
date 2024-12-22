@@ -1,4 +1,11 @@
-import { Card, CardBody, CardHeader, Divider, Link } from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Code,
+  Divider,
+  Link,
+} from "@nextui-org/react";
 import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
 import { mockData } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
@@ -11,7 +18,7 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 export default function App() {
   const { handleScroll } = useSmoothScroll();
   return (
-    <div className="mx-0 my-auto min-h-full max-w-full p-4 md:p-8">
+    <div className="mx-0 my-auto min-h-full max-w-screen-2xl p-4 md:p-8">
       <main className="grid grid-cols-12 gap-x-6 md:gap-x-10">
         <section className="col-span-12 sm:col-span-4 lg:col-span-3">
           <div className="sticky top-4 space-y-10">
@@ -33,7 +40,7 @@ export default function App() {
                         <Link
                           isBlock
                           underline="focus"
-                          className="grid w-full grid-cols-6 justify-center font-medium text-white"
+                          className="flex justify-start font-medium text-white"
                           color="secondary"
                           onClick={(e) => {
                             handleScroll(e, title);
@@ -48,7 +55,7 @@ export default function App() {
                               <FileBadge2 />
                             </div>
                           )}{" "}
-                          <p className="col-span-5 flex items-center px-1">
+                          <p className="flex items-center px-1">
                             {title}
                             {highlight && (
                               <Star
@@ -70,15 +77,16 @@ export default function App() {
         <section className="col-span-12 my-10 flex h-full w-full flex-col justify-between gap-y-4 sm:col-span-8 md:my-0 lg:col-span-9">
           <header className="flex w-full items-center justify-center">
             <p className="flex items-center py-10 text-6xl">
-              {null}
-              <TypingAnimation>
-                {" Welcome to " + " My portfolio website"}
-              </TypingAnimation>
+              <Code>
+                <TypingAnimation className="px-10 text-yellow-200">
+                  {" Welcome to " + " My portfolio website"}
+                </TypingAnimation>
+              </Code>
             </p>
           </header>
           <ul className="w-full space-y-10">
             {mockData.map((data, index) => (
-              <li id={data.title} key={index} className="">
+              <li id={data.title} key={index}>
                 <ProjectCard {...data} />
               </li>
             ))}

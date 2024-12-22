@@ -24,9 +24,9 @@ const ImagesWithPagination: React.FC<{
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       {/* Display Images */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+      <div className="flex flex-wrap justify-center items-center gap-10 p-1">
         {paginatedImages.map((imagePath, index) => (
           <Image
             key={index}
@@ -40,9 +40,13 @@ const ImagesWithPagination: React.FC<{
 
       {/* Pagination */}
       <Pagination
-        initialPage={1}
+        initialPage={2}
+        loop
+        showControls
+        color="warning"
         total={totalPages}
         onChange={handlePageChange}
+        className="p-4"
       />
     </div>
   );
