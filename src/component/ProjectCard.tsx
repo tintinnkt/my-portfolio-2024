@@ -1,3 +1,4 @@
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import {
   Accordion,
   AccordionItem,
@@ -17,11 +18,12 @@ import { project } from "../types/projectCard-props";
 import ImagesWithPagination from "./ImageWithPag";
 
 const ProjectCard = (project: project) => {
+  const windowWidth = useWindowWidth();
   return (
-    <Skeleton className="rounded-3xl p-1 sm:p-5" isLoaded={!0}>
+    <Skeleton className="rounded-3xl" isLoaded={!0}>
       <Card
         isBlurred
-        className="rounded-3xl bg-background/50 p-5 shadow-lg shadow-neutral-700 sm:p-8"
+        className="rounded-3xl bg-background/60 p-5 shadow-lg shadow-neutral-700 sm:p-8"
       >
         <CardHeader className="flex justify-between px-1">
           <div className="flex items-center justify-start gap-3">
@@ -71,9 +73,9 @@ const ProjectCard = (project: project) => {
                 }
               >
                 <Chip
-                  color={typeColor[techStackMapping[tool]?.type] || "default"}
+                  color={typeColor[techStackMapping[tool]?.type] || "warning"}
                   className={twJoin(
-                    "w-full text-center",
+                    "w-full text-center font-semibold text-white",
                     techStackMapping[tool]?.type != undefined
                       ? "cursor-context-menu"
                       : "cursor-default",
@@ -86,52 +88,20 @@ const ProjectCard = (project: project) => {
             ))}
           </div>
         </CardBody>
-        <Divider />
+        {project.imagesPath && <Divider />}
 
         <CardFooter className="flex w-full flex-col py-4">
           <Accordion showDivider={false} isCompact>
-            {/* {project.tools ? (
-              <AccordionItem
-                key="tools"
-                aria-label="Accordion 1"
-                title="Frameworks and tools"
-                subtitle="See what is used in this project"
-                className="items-center font-bold"
-              >
-                {project.tools?.map((name, index) => (
-                  <div
-                    key={index}
-                    className="grid grid-cols-6 items-center gap-3 py-1 font-normal"
-                  >
-                    <div className="col-span-1 items-center">
-                      <Chip
-                        color={
-                          typeColor[techStackMapping[name].type] || "default"
-                        }
-                        className="w-full text-center"
-                        variant="flat"
-                      >
-                        {techStackMapping[name].type}
-                      </Chip>
-                    </div>
-                    <div className="col-span-2 font-bold">{name}</div>
-                    <div className="col-span-3">
-                      {techStackMapping[name].description}
-                    </div>
-                  </div>
-                ))}
-              </AccordionItem>
-            ) : null} */}
             {project.imagesPath ? (
               <AccordionItem
                 key="2"
-                title="Accordion 2"
-                aria-label="Accordion 2"
-                subtitle="Press to expand"
+                title="Project Images"
+                aria-label="Project Images"
+                subtitle="Press to see images"
               >
                 <ImagesWithPagination
                   imagesPath={project.imagesPath}
-                  imgPerpage={4}
+                  imgPerpage={windowWidth > 400 ? 1 : 3}
                 />
               </AccordionItem>
             ) : null}
@@ -161,4 +131,5 @@ const typeColor: Record<
   Component: "secondary",
   "Icon Set": "secondary",
   "Build Tool": "secondary",
+  Language: "danger",
 };
