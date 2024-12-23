@@ -1,3 +1,4 @@
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 import {
   Avatar,
   Button,
@@ -6,19 +7,29 @@ import {
   CardFooter,
   CardHeader,
   Chip,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   Skeleton,
+  useDisclosure,
 } from "@nextui-org/react";
-import { Github, Link } from "lucide-react";
-import { useState } from "react";
+import { BadgeInfo, Github, Link } from "lucide-react";
+import { ScratchToReveal } from "./ui/ScratchToReview";
 export default function ProfileCard() {
-  const [isFollowed, setIsFollowed] = useState(false);
+  const windowWidth = useWindowWidth();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const handleComplete = () => {
+    // Do Something
+  };
   return (
     <Skeleton
       isLoaded
-      className="my-4 max-w-[400px] rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-neutral-700"
+      className="my-4 max-w-[600px] rounded-3xl bg-gradient-to-r from-purple-900 to-pink-300 shadow-lg shadow-neutral-700"
     >
       <Card isBlurred className="bg-background/30">
-        <CardHeader className="justify-between">
+        <CardHeader className="justify-between sm:flex sm:flex-wrap sm:space-y-1">
           <div className="flex gap-5">
             <Avatar
               isBordered
@@ -35,18 +46,55 @@ export default function ProfileCard() {
           </div>
           <Button
             className={
-              isFollowed
-                ? "border-default-200 bg-transparent text-foreground"
-                : ""
+              isOpen ? "border-default-200 bg-transparent text-foreground" : ""
             }
             color="primary"
             radius="full"
             size="sm"
-            variant={isFollowed ? "bordered" : "solid"}
-            onPress={() => setIsFollowed(!isFollowed)}
+            variant={isOpen ? "bordered" : "solid"}
+            onPress={onOpen}
           >
-            {isFollowed ? "Unfollow" : "Follow"}
+            {isOpen ? "Mini View" : "Full View"}
           </Button>
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            size="3xl"
+            hideCloseButton
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">
+                    My Infomation
+                  </ModalHeader>
+                  <ModalBody className="flex w-fit items-center justify-center">
+                    <p className="justify-left flex w-full items-center gap-x-2 text-left text-sm text-default-400">
+                      <BadgeInfo /> Scratch this gradient image
+                    </p>
+                    <ScratchToReveal
+                      width={windowWidth > 700 ? 600 : windowWidth * 0.9}
+                      height={300}
+                      minScratchPercentage={70}
+                      className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
+                      onComplete={handleComplete}
+                      gradientColors={["#F38CB8", "#FDCC92", "#A97CF8"]}
+                    >
+                      <><p className="text-xl">name : Krittin Tragunejindarat</p></>
+                    </ScratchToReveal>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="danger" variant="light" onPress={onClose}>
+                      Close
+                    </Button>
+                    <Button color="primary" onPress={handleComplete}>
+                      Action
+                    </Button>
+                  </ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
         </CardHeader>
         <CardBody className="px-3 py-0 text-small">
           <p className="py-2 indent-2">
