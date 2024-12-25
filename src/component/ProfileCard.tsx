@@ -26,7 +26,7 @@ export default function ProfileCard() {
   return (
     <Skeleton
       isLoaded
-      className="my-4 max-w-[600px] rounded-3xl bg-gradient-to-r from-purple-900 to-pink-300 shadow-lg shadow-neutral-700"
+      className="my-4 max-w-[400px] rounded-3xl bg-gradient-to-r from-purple-900 to-pink-300 shadow-lg shadow-neutral-700"
     >
       <Card isBlurred className="bg-background/30">
         <CardHeader className="justify-between sm:flex sm:flex-wrap sm:space-y-1">
@@ -73,14 +73,18 @@ export default function ProfileCard() {
                       <BadgeInfo /> Scratch this gradient image
                     </p>
                     <ScratchToReveal
-                      width={windowWidth > 700 ? 600 : windowWidth * 0.9}
+                      width={700}
                       height={300}
                       minScratchPercentage={70}
                       className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
                       onComplete={handleComplete}
                       gradientColors={["#F38CB8", "#FDCC92", "#A97CF8"]}
                     >
-                      <><p className="text-xl">name : Krittin Tragunejindarat</p></>
+                      <>
+                        <p className="text-xl">
+                          name : Krittin Tragunejindarat
+                        </p>
+                      </>
                     </ScratchToReveal>
                   </ModalBody>
                   <ModalFooter>

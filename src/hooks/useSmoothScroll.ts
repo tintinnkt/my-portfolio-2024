@@ -5,7 +5,7 @@ export const useSmoothScroll = () => {
     (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
       e.preventDefault();
       const element = document.getElementById(targetId);
-      const navHeight = 180; // Adjust this value based on your nav height
+      const navHeight = 65; // Adjust this value based on your nav height
 
       if (element) {
         const topPosition =
