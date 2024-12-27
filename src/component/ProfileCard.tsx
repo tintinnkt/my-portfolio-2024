@@ -1,4 +1,3 @@
-import { useWindowWidth } from "@/hooks/useWindowWidth";
 import {
   Avatar,
   Button,
@@ -15,10 +14,9 @@ import {
   Skeleton,
   useDisclosure,
 } from "@nextui-org/react";
-import { BadgeInfo, Github, Link } from "lucide-react";
+import { BadgeInfo, FolderCodeIcon, LinkIcon } from "lucide-react";
 import { ScratchToReveal } from "./ui/ScratchToReview";
 export default function ProfileCard() {
-  const windowWidth = useWindowWidth();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const handleComplete = () => {
     // Do Something
@@ -118,7 +116,7 @@ export default function ProfileCard() {
             variant="flat"
             color="primary"
             onPress={() => {}}
-            endContent={<Github />}
+            endContent={<FolderCodeIcon />}
           >
             Github
           </Button>
@@ -126,7 +124,7 @@ export default function ProfileCard() {
             className="flex gap-1 text-small font-semibold"
             variant="flat"
             color="primary"
-            endContent={<Link />}
+            endContent={<LinkIcon />}
           >
             Link
           </Button>
