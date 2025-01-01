@@ -1,9 +1,9 @@
-import { project } from "../types/projectCard-props";
+import { Project } from "../types/projectCard-props";
 export const ImagePath = {
   moneyManagement: "/src/assets/image/money-management/",
 };
 
-export const mockData: Array<project> = [
+export const mockData: Array<Project> = [
   {
     title: "Computer POSN",
     subtitile: "โครงการโอลิมปิกวิชาการ (สอวน.) วิชาคอมพิวเตอร์ ค่ายที่ 2",
@@ -15,12 +15,13 @@ export const mockData: Array<project> = [
   },
   {
     title: "Money Management App",
-    subtitile: "Web Application",
+    subtitile: "Web Application (High School Project)",
     description:
       "In my first experience with React, I worked on a money management web application designed to help users track their income, expenses, and budgets effectively. The application includes features such as transaction logging, categorization, budget management, and insightful visualizations like spending trends and category breakdowns using tools like Chart.js. Through this project, I learned how to build dynamic and reusable components, manage application state efficiently with React hooks, and handle data flow between components. This experience not only deepened my understanding of React but also taught me how to design user-centric applications with responsive layouts and clear navigation. It significantly enhanced my problem-solving skills and provided valuable insights into building functional and visually appealing web applications.",
     type: "project",
     highlight: false,
     imagesPath: ImagePath.moneyManagement,
+    gihubLink: "https://github.com/tintinnkt/fi-management-webapp",
     tools: [
       "React",
       "React DOM",
@@ -42,6 +43,7 @@ export const mockData: Array<project> = [
       "I worked on a university course selection platform as part of my CEDT elective project, focusing on the front-end development. My primary responsibility was developing the course list and course detail pages, where students can discover courses and check their eligibility. I implemented dynamic routes for course details and handled interactions like bookmarking, selecting, and removing courses using Axios for API integration. I utilized TanStack React Query for efficient data fetching and state management, specifically with useQueries and useMutation. While the interface was designed by the UX/UI team, I ensured the implementation followed their guidelines. The project was built using Next.js, with Prisma as the database ORM and Docker to manage the database locally. For components, I used NextUI and Lucide Icons, which significantly improved development speed. This project presented challenges, as it was my first time working with tools like Next.js, Prisma, Docker, and TanStack Query, but I learned a lot about API integration, state management, and handling dynamic routes in a large-scale application. Additionally, the platform supports a company side where agents can create and manage courses, though my focus was solely on the student-facing functionality.",
     type: "project",
     highlight: true,
+    link: "https://elective.cedt.community/",
     tools: [
       "Next.js",
       "NextAuth.js",
@@ -60,12 +62,13 @@ export const mockData: Array<project> = [
   },
   {
     title: "My Portfolio Website",
-    subtitile:
-      "This website show who am I and what I did. (You are currently on this website.)",
+    subtitile: "This website show who am I and what I did. (DEC 2024)",
     description:
       "My latest modern, interactive personal portfolio website built with React, Vite, and TypeScript. It showcases my skills, projects, and achievements as a software developer. The project uses Tailwind CSS for styling and animations with Framer Motion for enhanced user experience. The site features a clean design with components powered by NextUI and Lucide React for icons.",
     type: "project",
     highlight: false,
     tools: ["Vite.js", "UX/UI", "Tailwind CSS", "TypeScript"],
+    link: "here",
+    gihubLink: "https://github.com/tintinnkt/my-portfolio-2024",
   },
 ];

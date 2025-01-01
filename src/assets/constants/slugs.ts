@@ -1,7 +1,6 @@
 export const slugs = [
   "typescript",
   "javascript",
-  "java",
   "react",
   "flutter",
   "android",
@@ -13,7 +12,6 @@ export const slugs = [
   "nextdotjs",
   "vite",
   "prisma",
-  "amazonaws",
   "mongodb",
   "cloudflare",
   "firebase",
@@ -24,7 +22,6 @@ export const slugs = [
   "docker",
   "git",
   "github",
-  "visualstudiocode",
   "androidstudio",
   "figma",
   "debian",
@@ -33,6 +30,4 @@ export const slugs = [
   "pnpm",
   "deno",
   "bun",
-  "unix",
-  "c++"
 ];
