@@ -50,7 +50,9 @@ const ProjectCard = (project: Project) => {
                   />
                 )}
               </p>
-              <p className="text-small text-default-500 text-pretty">{project.subtitile}</p>
+              <p className="text-pretty text-small text-default-500">
+                {project.subtitile}
+              </p>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-end space-x-2 space-y-1">
@@ -83,9 +85,10 @@ const ProjectCard = (project: Project) => {
             {project.link && project.link == "here" && (
               <Button
                 isDisabled
-                className="cursor-default py-3 font-semibold"
+                className="cursor-default py-3"
                 color="primary"
                 variant="flat"
+                size="sm"
               >
                 You are on this website.
               </Button>
