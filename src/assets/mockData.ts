@@ -1,8 +1,8 @@
 import { Project } from "@/types/projectCard-props";
 import { User } from "@/types/user";
 export enum ImagePath {
-  moneyManagement = "/src/assets/image/money-management/",
-  cedtElective = "/src/assets/image/cedt-elective/",
+  moneyManagement = "/image/money-management/",
+  cedtElective = "/image/cedt-elective/",
 }
 
 export const projectsData: Array<Project> = [

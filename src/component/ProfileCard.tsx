@@ -81,7 +81,7 @@ export default function ProfileCard({ user }: { user: User }) {
                         <div className="flex justify-between space-x-3">
                           <div className="flex h-36 w-36 min-w-36 items-center justify-center overflow-hidden rounded-full border-2 border-primary">
                             <Image
-                              src="/src/assets/image/profilePic.jpg"
+                              src="/image/profilePic.jpg"
                               alt="Profile"
                               className="h-full w-full object-cover"
                             />
