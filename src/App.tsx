@@ -1,19 +1,19 @@
-import { projectData, user } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
 
-import { Card, CardHeader, Image } from "@nextui-org/react";
+import { Project } from "@/types/projectCard-props";
+import { projectsData, user } from "./assets/mockData";
 import NavigationBar from "./component/NavigationBar";
 import { BlurFade } from "./component/ui/blue-fade-text";
 import { IconCloudComponent } from "./component/ui/InteractiveIconCloud";
 
 export default function App() {
-  const data = projectData;
+  const data = projectsData;
   const startDelayTime = 0.25;
 
   return (
     <div className="mx-0 my-auto flex min-h-full w-screen flex-col items-center justify-center">
-      <main className="flex w-full flex-col items-center justify-center md:w-3/5 md:min-w-[790px]">
+      <main className="flex w-full flex-col items-center justify-center md:min-w-[750px] lg:w-2/3">
         <NavigationBar
           navData={data.map(({ title, type, highlight }) => ({
             title,
@@ -49,28 +49,16 @@ export default function App() {
                 </li>
                 {data.map((data, index) => (
                   <li id={data.title} key={index}>
-                    <ProjectCard {...data} />
+                    <ProjectCard {...(data as Project)} />
                   </li>
                 ))}
-                <li className="py-3">
-                  <Card
-                    className="col-span-12 h-[300px] sm:col-span-4"
-                    isBlurred
-                    isFooterBlurred
-                  >
-                    <CardHeader className="absolute top-1 z-10 flex-col !items-start text-white">
-                      mlk;
-                    </CardHeader>
-                    <Image
-                      removeWrapper
-                      alt="Card background"
-                      className="z-0 h-full w-full object-cover"
-                      src="https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                  </Card>
-                </li>
               </ul>
             </section>
+            <div className="h-48 py-2">
+              <p className="text-center text-xl font-semibold text-slate-600 shadow-black drop-shadow-2xl">
+                Thanks for visiting!
+              </p>
+            </div>
           </div>
         </BlurFade>
       </main>
