@@ -1,29 +1,38 @@
-import { useWindowWidth } from "@/hooks/useWindowWidth";
 import {
   Accordion,
   AccordionItem,
+  Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Chip,
   Divider,
+  Link,
   Skeleton,
   Tooltip,
 } from "@nextui-org/react";
-import { FileBadge2, FolderOpenDot, Star } from "lucide-react";
+import {
+  ExternalLinkIcon,
+  FileBadge2,
+  FolderOpenDot,
+  GithubIcon,
+  Star,
+} from "lucide-react";
 import { twJoin } from "tailwind-merge";
 import { techStackMapping } from "../assets/constants/toolMapping";
-import { project } from "../types/projectCard-props";
+import { Project } from "../types/projectCard-props";
 import ImagesWithPagination from "./ImageWithPag";
 
-const ProjectCard = (project: project) => {
-  const windowWidth = useWindowWidth();
+const ProjectCard = (project: Project) => {
   return (
     <Skeleton className="rounded-3xl" isLoaded={!0}>
       <Card
         isBlurred
-        className="rounded-3xl bg-background/60 p-5 shadow-lg shadow-neutral-700 sm:p-8"
+        className={twJoin(
+          "rounded-3xl bg-background/60 p-5 shadow-lg sm:p-8",
+          project.highlight ? "border-2 border-yellow-300/70 shadow-yellow-200/40" : "",
+        )}
       >
         <CardHeader className="flex justify-between px-1">
           <div className="flex items-center justify-start gap-3">
@@ -44,6 +53,42 @@ const ProjectCard = (project: project) => {
               <p className="text-small text-default-500">{project.subtitile}</p>
             </div>
           </div>
+          <div className="flex flex-wrap items-center justify-end space-x-2 space-y-1">
+            {project.gihubLink && (
+              <Button
+                as={Link}
+                href={project.link}
+                endContent={<GithubIcon />}
+                color={"secondary"}
+                variant="flat"
+                className="font-bold hover:scale-110"
+              >
+                Github
+              </Button>
+            )}
+            {project.link && project.link != "here" && (
+              <Button
+                as={Link}
+                href={project.link}
+                endContent={<ExternalLinkIcon />}
+                color={"success"}
+                variant="flat"
+                className="font-bold hover:scale-110"
+              >
+                See Website
+              </Button>
+            )}
+            {project.link && project.link == "here" && (
+              <Button
+                isDisabled
+                className="cursor-default py-3 font-semibold"
+                color="primary"
+                variant="flat"
+              >
+                You are on this website.
+              </Button>
+            )}
+          </div>
         </CardHeader>
         <Divider />
         <CardBody>
@@ -59,6 +104,7 @@ const ProjectCard = (project: project) => {
                 key={index}
                 color={typeColor[techStackMapping[tool]?.type] || "default"}
                 delay={1200}
+                offset={-7}
                 content={
                   techStackMapping[tool]?.type != undefined && (
                     <div>
@@ -75,12 +121,12 @@ const ProjectCard = (project: project) => {
                 <Chip
                   color={typeColor[techStackMapping[tool]?.type] || "warning"}
                   className={twJoin(
-                    "w-full text-center font-semibold text-white",
+                    "w-full text-center font-semibold",
                     techStackMapping[tool]?.type != undefined
                       ? "cursor-context-menu"
                       : "cursor-default",
                   )}
-                  variant="flat"
+                  variant="solid"
                 >
                   {tool}
                 </Chip>
@@ -90,23 +136,25 @@ const ProjectCard = (project: project) => {
         </CardBody>
         {project.imagesPath && <Divider />}
 
-        <CardFooter className="flex w-full flex-col py-4">
-          <Accordion showDivider={false} isCompact>
-            {project.imagesPath ? (
-              <AccordionItem
-                key="2"
-                title="Project Images"
-                aria-label="Project Images"
-                subtitle="Press to see images"
-              >
-                <ImagesWithPagination
-                  imagesPath={project.imagesPath}
-                  imgPerpage={windowWidth > 400 ? 1 : 3}
-                />
-              </AccordionItem>
-            ) : null}
-          </Accordion>
-        </CardFooter>
+        {project.imagesPath && (
+          <CardFooter className="flex w-full flex-col py-4">
+            <Accordion showDivider={false} isCompact>
+              {project.imagesPath ? (
+                <AccordionItem
+                  key="2"
+                  title="Project Images"
+                  aria-label="Project Images"
+                  subtitle="Press to see images"
+                >
+                  <ImagesWithPagination
+                    imagesPath={project.imagesPath}
+                    imgPerpage={1}
+                  />
+                </AccordionItem>
+              ) : null}
+            </Accordion>
+          </CardFooter>
+        )}
       </Card>
     </Skeleton>
   );
