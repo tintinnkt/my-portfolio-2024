@@ -76,19 +76,16 @@ export default function ProfileCard({ user }: { user: User }) {
                       <div className="flex flex-col gap-4">
                         {/* About Section */}
                         <div className="flex justify-between space-x-3">
-                          <div className="col-span-2 flex h-36 w-36 min-w-36 items-center justify-center overflow-hidden rounded-full border-2 border-primary">
+                          <div className="flex h-36 w-36 min-w-36 items-center justify-center overflow-hidden rounded-full border-2 border-primary">
                             <Image
                               src="/src/assets/image/profilePic.jpg"
                               alt="Profile"
                               className="h-full w-full object-cover"
                             />
                           </div>
-                          <div className="col-span-3 justify-center items-center flex">
-                            <p className="text-pretty indent-6 text-sm text-gray-600">
-                              Hi! I'm Krittin, a passionate web developer with a
-                              knack for crafting seamless user experiences. With
-                              expertise in React, TypeScript, and Tailwind CSS,
-                              I bring ideas to life on the web.
+                          <div className="flex items-center justify-center px-2">
+                            <p className="text-pretty text-justify indent-6 text-sm text-gray-600">
+                              {user.aboutMe}
                             </p>
                           </div>
                         </div>
@@ -147,12 +144,6 @@ export default function ProfileCard({ user }: { user: User }) {
                     <ModalFooter>
                       <Button color="danger" variant="light" onPress={onClose}>
                         Close
-                      </Button>
-                      <Button
-                        color="primary"
-                        onPress={() => alert("Thank you for visiting!")}
-                      >
-                        Action
                       </Button>
                     </ModalFooter>
                   </>

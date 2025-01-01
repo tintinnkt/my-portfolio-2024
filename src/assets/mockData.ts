@@ -84,6 +84,7 @@ export const user: User = {
   location: "Bangkok, Thailand",
   description:
     "Computer engineering student passionate about software development, eager to build innovative and efficient solutions.",
+  aboutMe: "Hi! I'm Krittin, a passionate web developer with a knack for crafting seamless user experiences. With expertise in React, TypeScript, and Tailwind CSS, I bring ideas to life on the web.",
   tags: ["FrontEnd", "BackEnd", "SoftwareEngineer"],
   githubLink: "https://github.com/tintinnkt",
 };

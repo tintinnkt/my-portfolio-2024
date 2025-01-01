@@ -6,6 +6,7 @@ export interface User {
   phone: string;
   location: string;
   description: string;
+  aboutMe: string;
   tags?: Array<string>;
   githubLink?: string;
   linkedinLink?: string;
