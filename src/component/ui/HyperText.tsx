@@ -4,7 +4,7 @@ import { cn } from "@nextui-org/react";
 import { AnimatePresence, motion, MotionProps } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-type CharacterSet = string[] | readonly string[];
+type CharacterSet = Array<string> | ReadonlyArray<string>;
 
 interface HyperTextProps extends MotionProps {
   /** The text content to be animated */
@@ -27,7 +27,7 @@ interface HyperTextProps extends MotionProps {
 
 const DEFAULT_CHARACTER_SET = Object.freeze(
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
-) as readonly string[];
+) as ReadonlyArray<string>;
 
 const getRandomInt = (max: number): number => Math.floor(Math.random() * max);
 
