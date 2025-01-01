@@ -1,10 +1,11 @@
+import { Project } from "@/types/projectCard-props";
 import { User } from "@/types/user";
-import { Project } from "../types/projectCard-props";
-export const ImagePath = {
-  moneyManagement: "/src/assets/image/money-management/",
-};
+export enum ImagePath {
+  moneyManagement = "/src/assets/image/money-management/",
+  cedtElective = "/src/assets/image/cedt-elective/",
+}
 
-export const projectData: Array<Project> = [
+export const projectsData: Array<Project> = [
   {
     title: "Computer POSN",
     subtitile: "โครงการโอลิมปิกวิชาการ (สอวน.) วิชาคอมพิวเตอร์ ค่ายที่ 2",
@@ -44,6 +45,7 @@ export const projectData: Array<Project> = [
     description:
       "As part of my CEDT elective project, I worked on a university course selection platform, focusing on front-end development. I developed the course list and detail pages, enabling students to explore courses and check eligibility. Using Axios, I implemented interactions like bookmarking and course selection, with TanStack React Query for efficient data fetching and state management. The project used Next.js, Prisma as the ORM, Docker for local database management, and NextUI for components. While the UX/UI team designed the interface, I ensured my implementation adhered to their guidelines. This was my first experience with tools like Next.js, Prisma, and Docker, and I gained valuable skills in API integration, state management, and dynamic routing. My focus was on student-facing functionality, while the platform also supports course management for companies.",
     type: "project",
+    imagesPath: ImagePath.cedtElective,
     highlight: true,
     link: "https://elective.cedt.community/",
     tools: [
@@ -84,7 +86,8 @@ export const user: User = {
   location: "Bangkok, Thailand",
   description:
     "Computer engineering student passionate about software development, eager to build innovative and efficient solutions.",
-  aboutMe: "Hi! I'm Krittin, a passionate web developer with a knack for crafting seamless user experiences. With expertise in React, TypeScript, and Tailwind CSS, I bring ideas to life on the web.",
+  aboutMe:
+    "Hi! I'm Krittin, a passionate web developer with a knack for crafting seamless user experiences. With expertise in React, TypeScript, and Tailwind CSS, I bring ideas to life on the web.",
   tags: ["FrontEnd", "BackEnd", "SoftwareEngineer"],
   githubLink: "https://github.com/tintinnkt",
 };
