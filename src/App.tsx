@@ -1,97 +1,72 @@
-import { FileBadge2, FolderOpenDot, HomeIcon, StarIcon } from "lucide-react";
 import { mockData } from "./assets/mockData";
 import ProfileCard from "./component/ProfileCard";
 import ProjectCard from "./component/ProjectCard";
 
-import { useState } from "react";
-import { TypingAnimation } from "./component/ui/HyperText";
+import { Card, CardHeader, Image } from "@nextui-org/react";
+import NavigationBar from "./component/NavigationBar";
 import { IconCloudComponent } from "./component/ui/InteractiveIconCloud";
-import { useSmoothScroll } from "./hooks/useSmoothScroll";
+import { BlurFade } from "./component/ui/blue-fade-text";
 
 export default function App() {
-  const { handleScroll } = useSmoothScroll();
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="mx-0 my-auto flex min-h-full w-screen justify-center">
-      <main className="flex w-full items-center justify-center px-2 pt-1 md:w-3/5 md:min-w-[760px]">
-        <nav className="fixed top-1 z-50 w-full rounded-xl bg-slate-800 px-3 md:w-fit">
-          {/* Toggle Button for Small Screens */}
-          <div className="flex items-center justify-between md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-white focus:outline-none"
-            >
-              {isOpen ? (
-                <span className="text-lg">✖</span> // Close icon
-              ) : (
-                <span className="text-lg">☰</span> // Hamburger icon
-              )}
-            </button>
-          </div>
+  const data = mockData;
 
-          {/* Collapsible Menu with Animation */}
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-            } md:max-h-full md:opacity-100`}
-          >
-            <ul className="flex flex-col justify-center space-y-2 md:flex-row md:space-x-4 md:space-y-0">
-              <li className="w-fit justify-center py-1">
-                <a
-                  href="#welcome"
-                  className="flex justify-start font-medium text-white"
-                  onClick={(e) => handleScroll(e, "welcome")}
-                >
-                  <div className="px-2 sm:px-1">
-                    <HomeIcon />
-                  </div>
-                  Welcome
-                </a>
+  return (
+    <div className="mx-0 my-auto flex min-h-full w-screen flex-col items-center justify-center">
+      <main className="flex w-full flex-col items-center justify-center md:w-3/5 md:min-w-[760px]">
+        <NavigationBar
+          navData={data.map(({ title, type, highlight }) => ({
+            title,
+            type,
+            highlight,
+          }))}
+        />
+        <div className="px-3">
+          <section className="my-10 flex h-full w-full flex-col justify-between gap-y-4 sm:col-span-8 md:my-0 lg:col-span-9">
+            <ul className="w-full space-y-10">
+              <li
+                id={"welcome"}
+                className="grid items-center justify-items-center sm:grid-cols-2"
+              >
+                <div className="text-center">
+                  <BlurFade delay={0.25} inView>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                      Hello World 👋
+                    </h2>
+                  </BlurFade>
+                  <BlurFade delay={0.25 * 2} inView>
+                    <span className="text-pretty text-xl tracking-tighter drop-shadow-lg sm:text-3xl xl:text-4xl/none">
+                      Scroll down to see my projects.
+                    </span>
+                  </BlurFade>
+                  <ProfileCard />
+                </div>
+                <IconCloudComponent />
               </li>
-              {mockData.map(({ title, highlight, type }, index) => (
-                <li className="w-fit justify-center py-1" key={index}>
-                  <a
-                    href={`#${title}`}
-                    className="flex justify-start font-medium text-white"
-                    onClick={(e) => handleScroll(e, title)}
-                  >
-                    <div className="px-2 sm:px-1">
-                      {type === "project" ? <FolderOpenDot /> : <FileBadge2 />}
-                    </div>
-                    <p className="flex items-center px-1">
-                      {title}
-                      {highlight && (
-                        <StarIcon
-                          fill="#FDE046"
-                          className="mx-2 text-yellow-300 sm:mx-1"
-                        />
-                      )}
-                    </p>
-                  </a>
+              {data.map((data, index) => (
+                <li id={data.title} key={index}>
+                  <ProjectCard {...data} />
                 </li>
               ))}
-            </ul>
-          </div>
-        </nav>
-        <section className="my-10 flex h-full w-full flex-col justify-between gap-y-4 sm:col-span-8 md:my-0 lg:col-span-9">
-          <ul className="w-full space-y-10">
-            <li
-              id={"welcome"}
-              className="grid items-center justify-items-center sm:grid-cols-2"
-            >
-              <div className="text-center">
-                <TypingAnimation>Welcome to here</TypingAnimation>
-                <ProfileCard />
-              </div>
-              <IconCloudComponent />
-            </li>
-            {mockData.map((data, index) => (
-              <li id={data.title} key={index}>
-                <ProjectCard {...data} />
+              <li className="py-3">
+                <Card
+                  className="col-span-12 h-[300px] sm:col-span-4"
+                  isBlurred
+                  isFooterBlurred
+                >
+                  <CardHeader className="absolute top-1 z-10 flex-col !items-start text-white">
+                    mlk;
+                  </CardHeader>
+                  <Image
+                    removeWrapper
+                    alt="Card background"
+                    className="z-0 h-full w-full object-cover"
+                    src="https://images.pexels.com/photos/949592/pexels-photo-949592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  />
+                </Card>
               </li>
-            ))}
-          </ul>
-        </section>
+            </ul>
+          </section>
+        </div>
       </main>
     </div>
   );
