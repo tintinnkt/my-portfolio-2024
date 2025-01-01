@@ -26,14 +26,14 @@ const ImagesWithPagination: React.FC<{
   return (
     <div className="flex flex-col items-center justify-center">
       {/* Display Images */}
-      <div className="flex flex-wrap justify-center items-center gap-10 p-1">
+      <div className="flex flex-wrap items-center justify-center gap-10 p-1">
         {paginatedImages.map((imagePath, index) => (
           <Image
             key={index}
             alt={`Image ${index + 1}`}
-            isZoomed
             height={400}
             src={imagePath}
+            className="hover:scale-110"
           />
         ))}
       </div>
@@ -46,7 +46,7 @@ const ImagesWithPagination: React.FC<{
         color="warning"
         total={totalPages}
         onChange={handlePageChange}
-        className="p-4"
+        className="px-4 pt-6"
       />
     </div>
   );
