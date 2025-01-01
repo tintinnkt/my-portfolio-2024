@@ -71,7 +71,7 @@ export default function ProfileCard({ user }: { user: User }) {
                 {(onClose) => (
                   <>
                     <ModalHeader className="flex flex-col gap-1 text-2xl">
-                      <HyperText startOnView duration={1500} delay={100}>
+                      <HyperText duration={1500} delay={100}>
                         About Me
                       </HyperText>
                     </ModalHeader>
