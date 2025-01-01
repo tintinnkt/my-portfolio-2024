@@ -19,10 +19,31 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      "@typescript-eslint/no-unused-vars": ["warn"],
+      "@typescript-eslint/array-type": [
+        "warn",
+        {
+          default: "generic",
+          readonly: "generic",
+        },
+      ],
+
+      "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+      "@typescript-eslint/naming-convention": [
+        "warn",
+        {
+          selector: "interface",
+          format: ["PascalCase"],
+        },
+      ],
+
+      "@typescript-eslint/no-empty-interface": "warn",
+
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
+      
     },
   },
 );
