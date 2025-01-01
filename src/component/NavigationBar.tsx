@@ -11,7 +11,7 @@ import {
 } from "@nextui-org/react";
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";
-import { TypingAnimation } from "./ui/HyperText";
+import { HyperText } from "./ui/HyperText";
 interface NavigationBarProps {
   navData: Array<{
     title: string;
@@ -25,36 +25,39 @@ export default function NavigationBar({ navData }: NavigationBarProps) {
   const handleLinkPress = (title: string) => {
     setIsMenuOpen(false);
     handleScroll(title);
+
   };
 
   return (
     <Navbar
-      className={twJoin("select-none", !isMenuOpen ? "rounded-b-xl" : "")}
+      className={twJoin("select-none hover:scale-105 transition-all", !isMenuOpen ? "rounded-b-xl" : "")}
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
+      isBlurred
     >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="lg:hidden"
         />
         <NavbarBrand className="cursor-pointer">
           <Link
             onPress={() => handleLinkPress("welcome")}
             className="font-bold text-inherit transition-all hover:scale-125"
           >
-            <TypingAnimation className="text-xl md:text-lg">
-              TINTIN
-            </TypingAnimation>
+            <HyperText delay={20}>TINTIN</HyperText>
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex" justify="center">
+      <NavbarContent
+        className="hidden space-x-0 md:space-x-1 lg:flex"
+        justify="center"
+      >
         {navData.map(({ title }, index) => (
           <NavbarItem
             key={index}
-            className="cursor-pointer rounded-xl px-2 py-2 transition-all hover:scale-110 hover:bg-slate-500/30 hover:text-white"
+            className="cursor-pointer rounded-xl py-2 transition-all hover:scale-110 hover:bg-slate-500/30 hover:text-white"
           >
             <Link onPress={() => handleLinkPress(title)}>{title}</Link>
           </NavbarItem>
