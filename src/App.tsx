@@ -54,8 +54,8 @@ export default function App() {
                 ))}
               </ul>
             </section>
-            <div className="h-48 py-2">
-              <p className="text-center text-xl font-semibold text-slate-600 shadow-black drop-shadow-2xl">
+            <div className="h-48 py-2 items-end flex">
+              <p className="text-center text-xl font-semibold text-slate-600 shadow-black drop-shadow-2xl w-full py-10">
                 Thanks for visiting!
               </p>
             </div>

@@ -50,7 +50,7 @@ const ProjectCard = (project: Project) => {
                   />
                 )}
               </p>
-              <p className="text-small text-default-500">{project.subtitile}</p>
+              <p className="text-small text-default-500 text-pretty">{project.subtitile}</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-end space-x-2 space-y-1">
