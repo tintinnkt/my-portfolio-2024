@@ -1,4 +1,4 @@
-export interface project {
+export interface Project {
   title: string;
   subtitile?: string;
   description: string;
@@ -7,4 +7,6 @@ export interface project {
   type: "project" | "competition";
   highlight: boolean;
   imagesPath?: string;
+  link?: string;
+  gihubLink?: string;
 }
