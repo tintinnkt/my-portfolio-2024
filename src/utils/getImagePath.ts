@@ -1,24 +1,28 @@
 import { ImagePath } from "@/assets/mockData";
 
-export function getImagePath(folder: string): Array<string> {
+// Helper function to generate the image paths
+function generateImagePaths(basePath: string, imageNames: Array<string>): Array<string> {
+  return imageNames.map((imageName) => basePath + imageName);
+}
 
+export function getImagePath(folder: string): Array<string> {
   if (folder === ImagePath.moneyManagement) {
-    return [
-      ImagePath.moneyManagement + "adding.png",
-      ImagePath.moneyManagement + "debt.png",
-      ImagePath.moneyManagement + "history.png",
-      ImagePath.moneyManagement + "home.png",
-      ImagePath.moneyManagement + "login.png",
-      ImagePath.moneyManagement + "profile.png",
-      ImagePath.moneyManagement + "savings.png",
-    ];
+    return generateImagePaths(ImagePath.moneyManagement, [
+      "adding.png",
+      "debt.png",
+      "history.png",
+      "home.png",
+      "login.png",
+      "profile.png",
+      "savings.png",
+    ]);
   } else if (folder === ImagePath.cedtElective) {
-    return [
-      ImagePath.cedtElective + "admin-view.png",
-      ImagePath.cedtElective + "course-list-phone.png",
-      ImagePath.cedtElective + "docker-deploy.png",
-      ImagePath.cedtElective + "student-view.png",
-    ];
+    return generateImagePaths(ImagePath.cedtElective, [
+      "admin-view.png",
+      "course-list-phone.png",
+      "docker-deploy.png",
+      "student-view.png",
+    ]);
   }
 
   return [];
