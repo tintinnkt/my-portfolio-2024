@@ -17,6 +17,7 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { FolderCodeIcon, Linkedin } from "lucide-react";
+import { HyperText } from "./ui/HyperText";
 
 export default function ProfileCard({ user }: { user: User }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -42,7 +43,7 @@ export default function ProfileCard({ user }: { user: User }) {
               <h4 className="text-small font-semibold leading-none">
                 {user.firstName + " " + user.lastName}
               </h4>
-              <h5 className="text-small tracking-tight">@{user.username}</h5>
+              <h5 className="text-small tracking-tight"> @{user.username}</h5>
             </div>
           </div>
           <>
@@ -70,7 +71,9 @@ export default function ProfileCard({ user }: { user: User }) {
                 {(onClose) => (
                   <>
                     <ModalHeader className="flex flex-col gap-1 text-2xl">
-                      About Me
+                      <HyperText startOnView duration={1500} delay={100}>
+                        About Me
+                      </HyperText>
                     </ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-4">
@@ -116,6 +119,7 @@ export default function ProfileCard({ user }: { user: User }) {
                                   variant="flat"
                                   color="primary"
                                   as={Link}
+                                  isExternal={true}
                                   href={user.githubLink}
                                   endContent={<FolderCodeIcon />}
                                 >

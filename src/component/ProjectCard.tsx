@@ -31,7 +31,7 @@ const ProjectCard = (project: Project) => {
         isBlurred
         className={twJoin(
           "rounded-3xl bg-background/60 p-5 shadow-lg sm:p-8",
-          project.highlight ? "border-2 border-yellow-300/70 shadow-yellow-200/40" : "",
+          project.highlight ? "border-2 border-yellow-300/70" : "",
         )}
       >
         <CardHeader className="flex justify-between px-1">
@@ -57,7 +57,8 @@ const ProjectCard = (project: Project) => {
             {project.gihubLink && (
               <Button
                 as={Link}
-                href={project.link}
+                href={project.gihubLink}
+                isExternal={true}
                 endContent={<GithubIcon />}
                 color={"secondary"}
                 variant="flat"
@@ -74,6 +75,7 @@ const ProjectCard = (project: Project) => {
                 color={"success"}
                 variant="flat"
                 className="font-bold hover:scale-110"
+                isExternal={true}
               >
                 See Website
               </Button>
@@ -137,11 +139,11 @@ const ProjectCard = (project: Project) => {
         {project.imagesPath && <Divider />}
 
         {project.imagesPath && (
-          <CardFooter className="flex w-full flex-col py-4">
+          <CardFooter className="flex w-full flex-col px-0 py-4">
             <Accordion showDivider={false} isCompact>
               {project.imagesPath ? (
                 <AccordionItem
-                  key="2"
+                  key="1"
                   title="Project Images"
                   aria-label="Project Images"
                   subtitle="Press to see images"
