@@ -25,12 +25,14 @@ export default function NavigationBar({ navData }: NavigationBarProps) {
   const handleLinkPress = (title: string) => {
     setIsMenuOpen(false);
     handleScroll(title);
-
   };
 
   return (
     <Navbar
-      className={twJoin("select-none hover:scale-105 transition-all", !isMenuOpen ? "rounded-b-xl" : "")}
+      className={twJoin(
+        "select-none transition-all hover:scale-105",
+        !isMenuOpen ? "rounded-b-xl" : "",
+      )}
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
       isBlurred
@@ -38,20 +40,22 @@ export default function NavigationBar({ navData }: NavigationBarProps) {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="lg:hidden"
+          className="md:hidden"
         />
         <NavbarBrand className="cursor-pointer">
           <Link
             onPress={() => handleLinkPress("welcome")}
             className="font-bold text-inherit transition-all hover:scale-125"
           >
-            <HyperText delay={20}>TINTIN</HyperText>
+            <HyperText delay={600} duration={1300}>
+              TINTIN
+            </HyperText>
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent
-        className="hidden space-x-0 md:space-x-1 lg:flex"
+        className="hidden space-x-0 md:flex md:space-x-1"
         justify="center"
       >
         {navData.map(({ title }, index) => (
