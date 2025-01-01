@@ -8,4 +8,5 @@ export interface User {
   description: string;
   tags?: Array<string>;
   githubLink?: string;
+  linkedinLink?: string;
 }
