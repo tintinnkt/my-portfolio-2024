@@ -9,7 +9,7 @@ import {
   renderSimpleIcon,
   SimpleIcon,
 } from "react-icon-cloud";
-import { slugs } from "../../assets/constants/slugs";
+import { slugs } from "@/assets/constants/slugs";
 
 const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
@@ -58,9 +58,9 @@ const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   });
 };
 
-export type DynamicCloudProps = {
-  iconSlugs: string[];
-};
+export interface DynamicCloudProps {
+  iconSlugs: Array<string>;
+}
 
 type IconData = Awaited<ReturnType<typeof fetchSimpleIcons>>;
 

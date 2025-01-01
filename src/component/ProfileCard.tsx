@@ -6,21 +6,13 @@ import {
   CardFooter,
   CardHeader,
   Chip,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
+  Link,
   Skeleton,
-  useDisclosure,
 } from "@nextui-org/react";
-import { BadgeInfo, FolderCodeIcon, LinkIcon } from "lucide-react";
-import { ScratchToReveal } from "./ui/ScratchToReview";
+import { FolderCodeIcon } from "lucide-react";
+
+const tags = ["FrontEnd", "BackEnd", "SoftwareEngineer"];
 export default function ProfileCard() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const handleComplete = () => {
-    // Do Something
-  };
   return (
     <Skeleton
       isLoaded
@@ -34,15 +26,16 @@ export default function ProfileCard() {
               radius="full"
               size="md"
               src="https://i.pinimg.com/736x/13/8c/f5/138cf505bf71f39b5e9ebdcc9c6b9942.jpg"
+              className="select-none"
             />
-            <div className="flex flex-col items-start justify-center gap-1">
-              <h4 className="text-small font-semibold leading-none text-default-600">
+            <div className="flex flex-col items-start justify-center gap-1 text-default-800">
+              <h4 className="text-small font-semibold leading-none">
                 Krittin Tragunejindarat
               </h4>
               <h5 className="text-small tracking-tight">@tintinnkt</h5>
             </div>
           </div>
-          <Button
+          {/* <Button
             className={
               isOpen ? "border-default-200 bg-transparent text-foreground" : ""
             }
@@ -50,83 +43,33 @@ export default function ProfileCard() {
             radius="full"
             size="sm"
             variant={isOpen ? "bordered" : "solid"}
-            onPress={onOpen}
           >
             {isOpen ? "Mini View" : "Full View"}
-          </Button>
-          <Modal
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
-            size="3xl"
-            hideCloseButton
-          >
-            <ModalContent>
-              {(onClose) => (
-                <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    My Infomation
-                  </ModalHeader>
-                  <ModalBody className="flex w-fit items-center justify-center">
-                    <p className="justify-left flex w-full items-center gap-x-2 text-left text-sm text-default-400">
-                      <BadgeInfo /> Scratch this gradient image
-                    </p>
-                    <ScratchToReveal
-                      width={700}
-                      height={300}
-                      minScratchPercentage={70}
-                      className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
-                      onComplete={handleComplete}
-                      gradientColors={["#F38CB8", "#FDCC92", "#A97CF8"]}
-                    >
-                      <>
-                        <p className="text-xl">
-                          name : Krittin Tragunejindarat
-                        </p>
-                      </>
-                    </ScratchToReveal>
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
-                      Close
-                    </Button>
-                    <Button color="primary" onPress={handleComplete}>
-                      Action
-                    </Button>
-                  </ModalFooter>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
+          </Button> */}
         </CardHeader>
         <CardBody className="px-3 py-0 text-small">
-          <p className="py-2 indent-2">
+          <p className="text-pretty pb-2 indent-2">
             Computer engineering student passionate about software development,
             eager to build innovative and efficient solutions.
           </p>
-          <Chip className="" size="sm" variant="solid" color="success">
-            #???
-            <span aria-label="computer" className="py-2" role="img">
-              💻
-            </span>
-          </Chip>
+          <div className="flex flex-wrap space-x-1">
+            {tags.map((tag, index) => (
+              <Chip key={index} size="sm" variant="solid" color="success">
+                #{tag}
+              </Chip>
+            ))}
+          </div>
         </CardBody>
         <CardFooter className="gap-3">
           <Button
             className="flex gap-1 text-small font-semibold"
             variant="flat"
             color="primary"
-            onPress={() => {}}
+            as={Link}
+            href="https://github.com/tintinnkt"
             endContent={<FolderCodeIcon />}
           >
             Github
-          </Button>
-          <Button
-            className="flex gap-1 text-small font-semibold"
-            variant="flat"
-            color="primary"
-            endContent={<LinkIcon />}
-          >
-            Link
           </Button>
         </CardFooter>
       </Card>
